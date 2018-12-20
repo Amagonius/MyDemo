@@ -1,0 +1,6 @@
+CSRF_ENABLED = True
+SECRET_KEY = '123456789'
+DEBUG = True
+
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@127.0.0.1/board_demo'
+SQLALCHEMY_TRACK_MODIFICATIONS = False

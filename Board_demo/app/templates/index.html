@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<h1>{% block title %} 留言 {% endblock %}</h1>
+	{% if current_user %}
+	<a class="action" href="{{ url_for('create') }}">新建</a>
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ post['title'] }}</h1>
+            <p class="body">{{ post['body'] }}</p>
+          <div class="about">by {{ username }}</div>
+        </div>
+          <a class="action" href="{{ url_for('update', id=post['id']) }}">编辑</a>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
